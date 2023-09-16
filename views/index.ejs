@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sheazy</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  </head>
+  <body>
+    <div class="index-main-div">
+        <div class="index-header">
+            <p>Sheazy.</p>
+        </div>
+        <div class="index-body-wrapper">
+            <div class="textarea-wrapper">
+                <div class="mask">
+                    <span data-show>Click, Copy, and Keep: Seamlessly store and share your world.</span>
+                    <span>Your content, preserved for the future.</span>
+                    <span>Copy the moments that matter; paste them into your digital time capsule.</span>
+                </div>
+                <!-- <p>Click, Copy, and Keep: Seamlessly store and share your world. Your content, preserved for the future. Copy the moments that matter; paste them into your digital time capsule.</p> -->
+                <textarea class="index-textarea" placeholder="type here..." id="index-textarea">
+                    <%= data %>
+                </textarea>
+            </div>
+            <div class="buttons-wrapper mx-auto">
+                <button onclick="saveData()" id="save-btn" class="save-btn">Save changes</button>
+                <button onclick="clearAll()" id="cancel-btn" class="cancel-btn">Clear</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const saveData = () => {
+            const data = document.getElementById("index-textarea").value;
+            // console.log(data);
+            fetch("http://localhost:3000/save", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ data })
+            }).then((res) => {
+                return res.json();
+            }).then((f_res) => {
+                // console.log(f_res.msg);
+                Toastify({
+                    text: f_res.msg,
+                    duration: 2000,
+                    newWindow: true,
+                    close: true,
+                    gravity: "top",
+                    position: "right",
+                    stopOnFocus: true,
+                    avatar: "/images/success-icon.svg",
+                    style: {
+                        background: "#000000",
+                    },
+                    onClick: function () { } // Callback after click
+                }).showToast();
+            })
+        };
+
+        const clearAll = () => {
+            document.getElementById("index-textarea").value = "";
+        };
+    </script>
+    <script src="/js/script.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  </body>
+</html>
