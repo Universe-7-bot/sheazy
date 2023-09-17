@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
 const mongoose = require("mongoose");
-const { ObjectId } = require("mongodb");
 const content = require("./models/content.js");
 const dotenv = require('dotenv');
 dotenv.config();
