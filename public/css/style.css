@@ -40,23 +40,23 @@
 /* animation */
 @keyframes backgroundColorPalette {
     0% {
-        background: rgb(62, 12, 109);
+        background: rgb(56, 8, 102);
     }
 
     25% {
-        background: rgb(68, 23, 107);
+        background: rgb(89, 35, 135);
     }
 
     50% {
-        background: rgb(88, 38, 134);
+        background: rgb(52, 15, 86);
     }
 
     75% {
-        background: rgb(58, 12, 101);
+        background: rgb(99, 45, 150);
     }
 
     100% {
-        background: rgb(55, 15, 93);
+        background: rgb(48, 13, 81);
     }
 }
 
@@ -200,6 +200,11 @@ textarea::-webkit-scrollbar-thumb {
 }
 
 .mask span:nth-child(3) {
+    /* background-image: linear-gradient(45deg, #8a7cfb 50%, #633e9c); */
+    color: rgb(180, 138, 248)
+}
+
+.mask span:nth-child(4) {
     /* background-image: linear-gradient(45deg, #8a7cfb 50%, #633e9c); */
     color: rgb(180, 138, 248)
 }
