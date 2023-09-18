@@ -207,3 +207,51 @@ textarea::-webkit-scrollbar-thumb {
     margin: 0 0 0 0;
     color: rgb(180, 138, 248);
 }
+
+@media only screen and (max-width: 500px) {
+    .textarea-wrapper textarea {
+        height: 80%;
+        width: 88%;
+        overflow-y: scroll;
+        margin: 1.5rem 0 0 0;
+        resize: none;
+        padding: 0.5rem 0 0 0.7rem;
+        border-radius: 8px;
+        border: none;
+    }
+
+    .buttons-wrapper {
+        width: 60%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin: 1rem 0 0 0;
+    }
+
+    .textarea-wrapper {
+        height: 70%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 1.5rem 0 0 0;
+    }
+
+    .room-details-wrapper {
+        width: 88%;
+        padding: 1rem;
+        border: 2px solid rgb(141, 98, 193);
+        border-radius: 8px;
+        background-color: rgb(180, 138, 248, 0.3);
+    }
+
+    .id-pass {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+    }
+}
